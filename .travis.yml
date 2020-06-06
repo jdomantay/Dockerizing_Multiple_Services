@@ -6,7 +6,7 @@ services:
 before_install:
     - docker build -t johnmatthewd/client_test -f ./client/Dockerfile.dev ./client
     - docker build -t johnmatthewd/nginx_test -f ./nginx/Dockerfile.dev ./nginx
-    #- docker build -t johnmatthewd/server_test -f ./server/Dockerfile.dev ./server
+    - docker build -t johnmatthewd/server_test -f ./server/Dockerfile.dev ./server
     #- docker build -t johnmatthewd/worker_test -f ./worker/Dockerfile.dev ./worker
 
 script:
@@ -20,7 +20,6 @@ after_success:
     - docker build -t johnmatthewd/nginx-p ./nginx
     - docker build -t johnmatthewd/server-p ./server
    # - docker build -t johnmatthewd/worker-p ./worker
-    
     #Push the images to docker-hub
     #step 1 login to docker cli
     
