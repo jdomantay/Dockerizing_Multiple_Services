@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion" : 2,
-    "containderDefinitions" : [
+    "containerDefinitions" : [
         {
             "name" : "client",
             "image" : "johnmatthewd/client-p",
@@ -39,6 +39,5 @@
             "essential" : false,
             "memory" : 128
         }
-
     ]
 }
