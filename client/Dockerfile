@@ -1,7 +1,5 @@
-#Development ONLY
-
 # BASE IMAGE
-FROM node:alpine
+FROM node:alpine 
 
 #Working DIR
 WORKDIR '/app'
@@ -16,15 +14,14 @@ RUN npm install
 COPY . . 
 
 #start up command
-CMD ["npm", "run", "start"]
+RUN npm run build
 
 
 #phase 2
 FROM nginx
-
 EXPOSE 3000
-#Copy nginx default.conf
 
+#Copy nginx default.conf
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 #Copy build from phase 1
