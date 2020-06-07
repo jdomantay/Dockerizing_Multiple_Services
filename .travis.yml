@@ -20,6 +20,12 @@ after_success:
     - docker build -t johnmatthewd/nginx-p ./nginx
     - docker build -t johnmatthewd/server-p ./server
     - docker build -t johnmatthewd/worker-p ./worker
+
     #Push the images to docker-hub
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push johnmatthewd/client-p 
+    - docker push johnmatthewd/nginx-p
+    - docker push johnmatthewd/server-p
+    - docker push johnmatthewd/worker-p
     #step 1 login to docker cli
     
