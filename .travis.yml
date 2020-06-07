@@ -29,4 +29,17 @@ after_success:
     #- docker push johnmatthewd/server-p
     #- docker push johnmatthewd/worker-p
     #step 1 login to docker cli
-    
+
+    #AWS Deployment
+deploy: 
+    edge: true
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: johnmatthewd_Multi_Container_Docker[FIB]
+    env: JohnmatthewdMultiContainerDockerfib-env
+    bucket_name: elasticbeanstalk-us-east-2-413646379915
+    bucket_path: docker-johnmatthewd_Multi_Container_Docker
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
